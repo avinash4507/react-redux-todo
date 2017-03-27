@@ -1,0 +1,19 @@
+@import "base/variables";
+
+// foundation
+@import "base/foundation-settings";
+@import "foundation";
+@include foundation-everything;
+
+// Components
+@import "components/addTodo";
+@import "components/todoApp";
+@import "components/todoSearch";
+@import "components/todoList";
+@import "components/todo";
+
+.page-title {
+    margin: 0;
+    padding: 2rem 0;
+    text-align: center;
+}
