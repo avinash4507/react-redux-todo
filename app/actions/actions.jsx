@@ -1,6 +1,6 @@
 export let searchTodo = searchText => {
     return {
-        type: 'SEARCH_TODO',
+        type: 'SET_SEARCH_TEXT',
         searchText
     }
 }

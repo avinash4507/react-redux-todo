@@ -5,7 +5,7 @@ var actions = require('actions');
 describe('Actions', () => {
     it('should generate search todo action', () => {
         let action = {
-            type: 'SEARCH_TODO',
+            type: 'SET_SEARCH_TEXT',
             searchText: 'search text'
         };
         let res = actions.searchTodo(action.searchText);
