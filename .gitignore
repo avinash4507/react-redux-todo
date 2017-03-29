@@ -32,4 +32,3 @@
 *.dSYM/
 *.su
 node_modules
-public/*.js
