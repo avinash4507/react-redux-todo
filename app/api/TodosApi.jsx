@@ -6,7 +6,7 @@ module.exports = {
             return todos;
         }
     },
-    getTodo: function () {
+    getTodos: function () {
         let stringTodos = localStorage.getItem('todos');
         let todos = [];
 

@@ -4,7 +4,7 @@ var TestUtils = require('react-addons-test-utils');
 var expect = require('expect');
 var $ = require('jQuery');
 
-var TodoSearch = require('TodoSearch');
+import {TodoSearch} from 'TodoSearch';
 
 describe('TodoSearch', () => {
     it('should exist', () => {
@@ -12,25 +12,32 @@ describe('TodoSearch', () => {
     });
 
     describe('handleSearch', () => {
-        it('should call handleSearch with search data', () => {
+        it('should dispatch SET_SEARCH_TEXT action on valid search data', () => {
             let searchText = 'dog';
+            let action = {
+                type: 'SET_SEARCH_TEXT',
+                searchText
+            }
             let spy = expect.createSpy();
-            let todoSearch = TestUtils.renderIntoDocument(<TodoSearch handleSearch={spy}/>);
+            let todoSearch = TestUtils.renderIntoDocument(<TodoSearch dispatch={spy}/>);
             let $el = $(ReactDOM.findDOMNode(todoSearch));
             todoSearch.refs.searchText.value = searchText;
             TestUtils.Simulate.change(todoSearch.refs.searchText);
 
-            expect(spy).toHaveBeenCalledWith('dog', false);
+            expect(spy).toHaveBeenCalledWith(action);
         })
 
-        it('should call handleSearch with proper checked value', () => {
+        it('should dispatch TOGGLE_SHOW_COMPLETED action when checkbox checked', () => {
             let spy = expect.createSpy();
-            let todoSearch = TestUtils.renderIntoDocument(<TodoSearch handleSearch={spy}/>);
+            let action = {
+                type: 'TOGGLE_SHOW_COMPLETED',
+            }
+            let todoSearch = TestUtils.renderIntoDocument(<TodoSearch dispatch={spy}/>);
             let $el = $(ReactDOM.findDOMNode(todoSearch));
             todoSearch.refs.showCompleted.checked = true;
             TestUtils.Simulate.change(todoSearch.refs.showCompleted);
 
-            expect(spy).toHaveBeenCalledWith('', true);
+            expect(spy).toHaveBeenCalledWith(action);
         })
     })
 })

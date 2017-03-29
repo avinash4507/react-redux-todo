@@ -48,7 +48,7 @@ describe('TodosApi', () => {
                 }
             ];
             localStorage.setItem('todos', JSON.stringify(todo));
-            let expectedTodo = TodosApi.getTodo();
+            let expectedTodo = TodosApi.getTodos();
             expect(expectedTodo).toEqual(todo);
         })
     });
