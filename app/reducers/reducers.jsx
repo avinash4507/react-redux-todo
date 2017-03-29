@@ -40,6 +40,8 @@ export let todosReducer = (state = [], action) => {
                         completed: toggledCompleted,
                         completedAt: toggledCompleted ? moment().unix() : undefined
                     }
+                } else {
+                    return todo;
                 }
             })
         default:
